@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web components</title>
+    <link rel="import" href="components/sidebar-navigation/sidebar-navigation.html">
+    <link rel="import" href="components/show-content/show-content.html">
+</head>
+
+<body>
+
+
+     <sidebar-navigation></sidebar-navigation>
+     <show-content></show-content>
+     
+</body>
+
+<script>
+
+   document.addEventListener('navigation-active', (event)=>{
+      console.log("Escucho...", event)
+  });
+
+    document.addEventListener('click', (event)=>{
+      console.log("Escucho click", event)
+  });
+</script>
+</html>

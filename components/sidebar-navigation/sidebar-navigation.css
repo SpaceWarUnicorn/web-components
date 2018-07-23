@@ -1,0 +1,9 @@
+section{
+  border: 4px solid blue;
+}
+
+p { color: orange; }
+      
+.edit_p{
+  color: var(--parrafo-color, red);
+}
