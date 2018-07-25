@@ -43,11 +43,17 @@
 
 <script>
 
-  /*let showContent = document.querySelector('show-content');
+  let showContent = document.querySelector('show-content');
+  
+  let sidebar = document.querySelector('sidebar-navigation');
 
    document.addEventListener('navigation-active', (event)=>{
       showContent.add(event.detail);
-  });*/
+  });
+
+   document.addEventListener('killEvt', (event)=>{
+      sidebar.killHero(event);
+  });
 
 
 </script>

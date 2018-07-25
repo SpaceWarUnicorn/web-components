@@ -57,26 +57,48 @@ class SidebarNavigation extends HTMLElement{
       }));
    });
 
-     document.addEventListener('killEvt', (data)=>{
-       let id = '';
-       let hero='';
-       let label = ''
-       if(data.detail.id!= ''){
-         id = data.detail.id;
-       }
-
-       for (let i in superhero){
-         if (id == superhero[i]._id){
-           hero = superhero[i].hero.toLowerCase();
-           label = this.shadowRoot.querySelector('#'+hero)
-           label.remove();
-         }
-       }
-
-
-
-     });
   }
+
+
+  killHero(data){
+    let superhero = [
+      {
+        _id:'one',
+        hero: 'Spiderman',
+        universo:'marvel',
+        identidad:'peter parker'
+      },
+      {
+        _id:'two',
+        hero: 'Batman',
+        universo:'DC',
+        identidad:'Bruno Diaz'
+      },
+      {
+        _id:'three',
+        hero: 'Goku',
+        universo:'Dragon Ball',
+        identidad:'Son-Goku'
+      }
+    ]
+    let id= '';
+    let hero='';
+    let label = '';
+
+    if(data.detail.id!= ''){
+      id = data.detail.id;
+    }
+
+    for (let i in superhero){
+      if (id == superhero[i]._id){
+        label = superhero[i].hero.toLowerCase();
+        hero = this.shadowRoot.querySelector('#'+label);
+        hero.remove();
+      }
+    }
+  }
+
+
 }
 
 newElement.define('sidebar-navigation', SidebarNavigation);

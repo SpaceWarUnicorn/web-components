@@ -25,6 +25,7 @@ class ShowContent extends HTMLElement{
    const template = templateImport.querySelector('#show-content');
    const instance = template.content.cloneNode(true);
    shadowRoot.appendChild(instance);
+    /*
     document.addEventListener('navigation-active', (data)=>{
       let superhero = data.detail.hero;
       let card = '';
@@ -48,6 +49,7 @@ class ShowContent extends HTMLElement{
       let content = shadowRoot.querySelector('#container');
       content.innerHTML += card;
     });
+    */
 
     this.shadowRoot.addEventListener('click', (e) => {
       let element = e.target.getAttribute('class');
@@ -61,7 +63,6 @@ class ShowContent extends HTMLElement{
         id = element.split(' ')[1];
 
         label = this.shadowRoot.querySelector('#'+id);
-        console.log(id);
         label.remove();
       }
 
@@ -76,39 +77,36 @@ class ShowContent extends HTMLElement{
 
   }
 
-  /*add(data) {
+  add (data) {
     let newCard = this.createCard(data);
     let content = this.shadowRoot.querySelector('#container');
     content.innerHTML += newCard;
-
-    const butt = this.shadowRoot.querySelector('#hero'+data.hero._id);
-     butt.addEventListener('click', () => {
-       alert('workea');
-     });
   }
 
   createCard(data) {
     let superhero = data.hero;
     let card = '';
+
     if(!superhero == "" )
     {
 
      card = `
-      <section class="container card">
+      <section class="container card" id="${superhero._id}">
           <article class="items">
-            <label class="item texto name">
+            <label class="item texto">
               ${superhero.hero}
-            </label><label class="item texto name">
+            </label><label class="item texto">
               ${superhero.universo}
-            </label><label class="item texto name">
+            </label><label class="item texto">
               ${superhero.identidad}
             </label>
-            <button id="hero${superhero._id}">Eliminar</button>
+            <button class="hero ${superhero._id}">Eliminar</button>
         </article>
       </section>`;
     }
+
     return card;
-  }*/
+  }
 
   }
 
