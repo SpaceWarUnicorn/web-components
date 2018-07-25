@@ -1,0 +1,42 @@
+.container.card {
+  background: rgba(0, 0 ,0 , .4);
+  border-radius: 10px;
+  height: 210px;
+  max-width: 40%;
+  min-width: 350px;
+  margin: 10px;
+  padding: 0 20px 0 20px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container.cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.items >button{
+  width: 7rem;
+  height: 4rem;
+  border-radius: 20px;
+}
+
+.item {
+  margin: 5px 0 5px 0;
+}
+.item.texto {
+  font-size: 2rem;
+  font-weight: 400;
+  align-self: center;
+}

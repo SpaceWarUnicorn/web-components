@@ -7,6 +7,30 @@
     <title>Web components</title>
     <link rel="import" href="components/sidebar-navigation/sidebar-navigation.html">
     <link rel="import" href="components/show-content/show-content.html">
+    <style>
+
+      html,body{
+        height: 98%;
+      }
+      body{
+        display: flex;
+        align-self: stretch;
+      }
+
+      show-content{
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        flex: 1 0 auto;
+        }
+
+        siderbar-navigation{
+          width: 210px;
+          align-self: stretch;
+          display: flex;
+        }
+
+      </style>
 </head>
 
 <body>

@@ -32,13 +32,13 @@ class ShowContent extends HTMLElement{
       {
 
        card = `
-        <section class="container card">
-            <article class="items" id="${superhero._id}">
-              <label class="item texto name">
+        <section class="container card" id="${superhero._id}">
+            <article class="items">
+              <label class="item texto">
                 ${superhero.hero}
-              </label><label class="item texto name">
+              </label><label class="item texto">
                 ${superhero.universo}
-              </label><label class="item texto name">
+              </label><label class="item texto">
                 ${superhero.identidad}
               </label>
               <button class="hero ${superhero._id}">Eliminar</button>
@@ -62,7 +62,7 @@ class ShowContent extends HTMLElement{
 
         label = this.shadowRoot.querySelector('#'+id);
         console.log(id);
-        label.innerHTML='';
+        label.remove();
       }
 
 
