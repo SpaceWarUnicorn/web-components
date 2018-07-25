@@ -69,7 +69,7 @@ class SidebarNavigation extends HTMLElement{
          if (id == superhero[i]._id){
            hero = superhero[i].hero.toLowerCase();
            label = this.shadowRoot.querySelector('#'+hero)
-           label.innerHTML='';
+           label.remove();
          }
        }
 
