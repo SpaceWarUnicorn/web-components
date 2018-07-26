@@ -44,7 +44,7 @@
 <script>
 
   let showContent = document.querySelector('show-content');
-  
+
   let sidebar = document.querySelector('sidebar-navigation');
 
    document.addEventListener('navigation-active', (event)=>{
@@ -52,7 +52,7 @@
   });
 
    document.addEventListener('killEvt', (event)=>{
-      sidebar.killHero(event);
+      sidebar.killHero(event.detail.heros);
   });
 
 

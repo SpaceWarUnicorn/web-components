@@ -8,31 +8,48 @@ class SidebarNavigation extends HTMLElement{
 
   constructor(){
     super();
-
   }
 
   connectedCallback () {
 
-    let superhero = [
-      {
-        _id:'one',
-        hero: 'Spiderman',
-        universo:'marvel',
-        identidad:'peter parker'
-      },
-      {
-        _id:'two',
-        hero: 'Batman',
-        universo:'DC',
-        identidad:'Bruno Diaz'
-      },
-      {
-        _id:'three',
-        hero: 'Goku',
-        universo:'Dragon Ball',
-        identidad:'Son-Goku'
-      }
-    ]
+  let superhero = [
+    {
+      _id:'one',
+      hero: 'Spiderman',
+      universo:'marvel',
+      identidad:'peter parker'
+    },
+    {
+      _id:'two',
+      hero: 'Batman',
+      universo:'DC',
+      identidad:'Bruno Diaz'
+    },
+    {
+      _id:'three',
+      hero: 'Goku',
+      universo:'Dragon Ball',
+      identidad:'Son-Goku'
+    },
+    {
+      _id:'four',
+      hero: 'Flash',
+      universo:'DC',
+      identidad:'Barry Allen'
+    },
+    {
+      _id:'five',
+      hero: 'DareDevil',
+      universo:'Marvel',
+      identidad:'Matt Murdoc'
+    },
+    {
+      _id:'six',
+      hero: 'AllMight',
+      universo:'My Hero Academia',
+      identidad:'Yagi Toshinori'
+    }
+  ]
 
    let shadowRoot = this.attachShadow({mode: 'open'});
    const templateImport = document.querySelector('link[rel="import"]').import;
@@ -40,8 +57,15 @@ class SidebarNavigation extends HTMLElement{
    const instance = template.content.cloneNode(true);
    shadowRoot.appendChild(instance);
 
+   let section = this.shadowRoot.querySelector('section');
+   let heros='';
+   for (let i in superhero){
+     heros+= `<p id='${superhero[i].hero}' class='edit_p'>${superhero[i].hero}</p>`;
+   }
 
-   this.shadowRoot.addEventListener('click', (event)=>{
+   section.innerHTML += heros;
+
+   shadowRoot.addEventListener('click', (event)=>{
      let element = event.target.innerHTML;
      let hero='';
      for (let i in superhero){
@@ -56,45 +80,13 @@ class SidebarNavigation extends HTMLElement{
         detail:{hero}
       }));
    });
-
   }
 
 
   killHero(data){
-    let superhero = [
-      {
-        _id:'one',
-        hero: 'Spiderman',
-        universo:'marvel',
-        identidad:'peter parker'
-      },
-      {
-        _id:'two',
-        hero: 'Batman',
-        universo:'DC',
-        identidad:'Bruno Diaz'
-      },
-      {
-        _id:'three',
-        hero: 'Goku',
-        universo:'Dragon Ball',
-        identidad:'Son-Goku'
-      }
-    ]
-    let id= '';
-    let hero='';
-    let label = '';
-
-    if(data.detail.id!= ''){
-      id = data.detail.id;
-    }
-
-    for (let i in superhero){
-      if (id == superhero[i]._id){
-        label = superhero[i].hero.toLowerCase();
-        hero = this.shadowRoot.querySelector('#'+label);
-        hero.remove();
-      }
+    let id = this.shadowRoot.querySelector('#'+data);
+    if(id != null){
+      id.remove();
     }
   }
 

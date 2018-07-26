@@ -55,13 +55,16 @@ class ShowContent extends HTMLElement{
       let element = e.target.getAttribute('class');
       let btn = [];
       let id = '';
+      let heros='';
       let label= '';
+
       if (element != null){
         btn = element.split(' ');
       }
-      if (btn[0] == 'hero'){
-        id = element.split(' ')[1];
 
+      if (btn[0] == 'hero'){
+        id = btn[1];
+        heros = btn[2];
         label = this.shadowRoot.querySelector('#'+id);
         label.remove();
       }
@@ -71,7 +74,7 @@ class ShowContent extends HTMLElement{
       this.dispatchEvent(new CustomEvent('killEvt', {
         bubbles:true,
         composed:true,
-        detail:{id}
+        detail:{heros}
       }));
     });
 
@@ -87,7 +90,7 @@ class ShowContent extends HTMLElement{
     let superhero = data.hero;
     let card = '';
 
-    if(!superhero == "" )
+    if(!superhero == "" && !this.shadowRoot.querySelector('#'+ superhero._id))
     {
 
      card = `
@@ -100,7 +103,7 @@ class ShowContent extends HTMLElement{
             </label><label class="item texto">
               ${superhero.identidad}
             </label>
-            <button class="hero ${superhero._id}">Eliminar</button>
+            <button class="hero ${superhero._id} ${superhero.hero}">Eliminar</button>
         </article>
       </section>`;
     }
