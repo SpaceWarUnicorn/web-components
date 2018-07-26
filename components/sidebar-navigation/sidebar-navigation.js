@@ -62,7 +62,6 @@ class SidebarNavigation extends HTMLElement{
    for (let i in superhero){
      heros+= `<p id='${superhero[i].hero}' class='edit_p'>${superhero[i].hero}</p>`;
    }
-
    section.innerHTML += heros;
 
    shadowRoot.addEventListener('click', (event)=>{

@@ -47,11 +47,11 @@
 
   let sidebar = document.querySelector('sidebar-navigation');
 
-   document.addEventListener('navigation-active', (event)=>{
+  this.addEventListener('navigation-active', (event)=>{
       showContent.add(event.detail);
   });
 
-   document.addEventListener('killEvt', (event)=>{
+   this.addEventListener('killEvt', (event)=>{
       sidebar.killHero(event.detail.heros);
   });
 
